@@ -1,63 +1,129 @@
-# 🗓 Event Scheduler API
+# 🗓️ Event Scheduler API
 
-A simple Python + Flask project to create, list, update, and delete calendar events.  
-This project uses a JSON file for storage and is perfect as a small backend or for learning REST APIs.
+A simple Python + Flask REST API to **create, list, update, and delete calendar events**.  
+Great as a small backend project or for learning REST APIs, JSON storage & Postman testing.
 
 ---
 
-## 🚀 How to run the project
+## 🚀 Getting started
 
-1️⃣ Clone this repository or unzip the project folder locally.
+Follow these steps to run the project locally:
+
+1️⃣ Clone this repository or download & unzip it.
 
 2️⃣ Install dependencies:
 ```bash
 pip install -r requirements.txt
+```
 
-
-3️⃣ Make sure your events.json file exists and contains at least an empty list:
+3️⃣ Make sure the `events.json` file exists and contains at least:
+```json
 []
+```
 
 4️⃣ Start the Flask server:
 ```bash
 python app.py
+```
 
-
-The API will be available at:
+API will be running at:
+```
 http://127.0.0.1:5000
+```
 
+---
 
-📦 Project structure:
-```bash
+## 📦 Project structure
+
+```
 event_scheduler/
-├── app.py                                 # Flask app with API endpoints
-├── storage.py                             # Helper to load/save events from JSON
-├── events.json                            # Data file to store events (keep [] inside)
-├── requirements.txt                       # Python dependencies (Flask)
-├── README.md                              # Project documentation (this file)
-└── Event Scheduler.postman_collection.json  # Postman collection to easily test the API
+├── app.py                                  # Main Flask app with API endpoints
+├── storage.py                              # Helpers to load/save events to JSON
+├── events.json                             # JSON file to store events
+├── requirements.txt                        # Python dependencies
+├── README.md                               # Project documentation
+└── Event Scheduler.postman_collection.json # Postman collection to test API
+```
 
+---
 
-🧪 How to test using Postman
-You don’t need to build a frontend — just use Postman:
+## 🧪 How to test with Postman
 
-1️⃣ Open Postman → click Import
-2️⃣ Select the file: Event Scheduler.postman_collection.json
-3️⃣ Use the saved requests inside the collection to test your API:
+No need to build frontend — just use Postman:
 
-| Method |             Endpoint |                             Description |
-| -----: | -------------------: | --------------------------------------: |
-|    GET |            `/events` | List all events (sorted by start\_time) |
-|   POST |            `/events` |                      Create a new event |
-|    PUT | `/events/<event_id>` |                Update an existing event |
-| DELETE | `/events/<event_id>` |                         Delete an event |
+1️⃣ Open Postman → click **Import**
 
+2️⃣ Select:
+```
+Event Scheduler.postman_collection.json
+```
 
-📌 Example event JSON
-Use this JSON when creating or updating an event:
+3️⃣ Use the saved requests:
 
+| Method | Endpoint                | Purpose                          |
+|------:|------------------------:|---------------------------------:|
+| GET   | `/events`               | List all events (sorted by start time) |
+| POST  | `/events`               | Create a new event |
+| PUT   | `/events/<event_id>`    | Update an existing event |
+| DELETE| `/events/<event_id>`    | Delete an event |
+
+✅ Each request already includes sample JSON body.
+
+---
+
+## 📌 Example JSON for creating/updating event
+
+```json
 {
   "title": "Team meeting",
-  "description": "Discuss project status",
+  "description": "Discuss project updates",
   "start_time": "2025-07-01 10:00",
   "end_time": "2025-07-01 11:00"
 }
+```
+
+---
+
+## ✅ Features
+
+- Add events (auto-generated unique IDs)
+- List events sorted by start time
+- Update event details by ID
+- Delete events by ID
+- Simple JSON storage (easy to view & edit)
+
+---
+
+## 🌱 Future ideas
+
+- Send reminders (email/SMS/notifications)
+- Support recurring events
+- Replace JSON with database (SQLite, PostgreSQL, etc.)
+- Add user authentication
+- Build a React/Vue/Angular frontend
+
+---
+
+## 🧰 Quick code overview
+
+- `app.py`  
+  - `/events` → `GET` list & `POST` create
+  - `/events/<event_id>` → `PUT` update & `DELETE` delete
+- `storage.py`  
+  - `load_events()` → read events from `events.json`
+  - `save_events(events)` → write events to `events.json`
+- `events.json` → starts with `[]`, grows as you add events.
+
+---
+
+## 📌 Requirements
+
+- Python 3.7+
+- Flask (installed via requirements.txt)
+
+---
+
+## 🙌 Author & Contact
+
+Feel free to fork, open issues, or suggest improvements.  
+> **Happy coding! 🚀**

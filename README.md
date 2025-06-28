@@ -93,15 +93,6 @@ Event Scheduler.postman_collection.json
 - Simple JSON storage (easy to view & edit)
 
 ---
-
-## 🌱 Future ideas
-
-- Send reminders (email/SMS/notifications)
-- Support recurring events
-- Replace JSON with database (SQLite, PostgreSQL, etc.)
-- Add user authentication
-- Build a React/Vue/Angular frontend
-
 ---
 
 ## 🧰 Quick code overview
@@ -122,8 +113,3 @@ Event Scheduler.postman_collection.json
 - Flask (installed via requirements.txt)
 
 ---
-
-## 🙌 Author & Contact
-
-Feel free to fork, open issues, or suggest improvements.  
-> **Happy coding! 🚀**
